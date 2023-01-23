@@ -14,5 +14,4 @@ v. 0.1 includes:
 - Primary scene in progress
 - Most UI aspects, including health and mana
 - Codex / journal for the player
-Video:
-https://www.youtube.com/watch?v=riGNxe09qUQ
+# Video: https://www.youtube.com/watch?v=riGNxe09qUQ
