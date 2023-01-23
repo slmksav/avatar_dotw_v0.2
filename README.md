@@ -6,9 +6,13 @@ An open-sourced game project. I claim no commercial rights to the Avatar: TLA or
 
 1/23/2023 - Established the repository
 v. 0.1 includes:
-- Walking and bending
+- Walking and bending, blinking and idling
+- Sounds for both environment and characters
+- 1 generic NPC with randomized dialogue
 - Sleeping, daylight cycle
 - Numerous props and sprites
 - Primary scene in progress
 - Most UI aspects, including health and mana
 - Codex / journal for the player
+Video:
+https://www.youtube.com/watch?v=riGNxe09qUQ
