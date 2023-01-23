@@ -18,4 +18,4 @@ v. 0.1 includes:
 - Sleep and day/night cycle effects on light and color modulation:
   https://www.youtube.com/watch?v=riGNxe09qUQ
 - Player animations in detail, readable signs and NPC dialogue:
-  https://www.youtube.com/watch?v=riGNxe09qUQ
+  https://www.youtube.com/watch?v=UwBR_8KrOMA
