@@ -2,6 +2,8 @@
 
 An open-sourced game project. I claim no commercial rights to the Avatar: TLA or any other Avatar-series related IP's owned by their respective rightsholders. Every single material in the game is used under open source licenses. No material from commercial products has been used. Usage of the series' IP in this case falls under the fair use category. No one is legally allowed to commercialize this project or any of it's components (due to the copyright warning above). You are allowed to copy, use and utilize any systems and/or scripts made by me.
 
+Inspired by: https://github.com/Rystic/ATLA-restored
+
 ## Changelog
 
 1/23/2023 - Established the repository.
