@@ -4,7 +4,7 @@ An open-sourced game project. I claim no commercial rights to the Avatar: TLA or
 
 ## Changelog
 
-1/23/2023 - Established the repository
+1/23/2023 - Established the repository.
 v. 0.1 includes:
 - Walking and bending, blinking and idling
 - Sounds for both environment and characters
