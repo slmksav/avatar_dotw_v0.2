@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Orb.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Environment/light.png" type="Texture" id=2]
+
+[node name="Orb" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="AttachedParticles" type="Particles2D" parent="."]
+
+[node name="DetachedParticles" type="Particles2D" parent="."]
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 2 )
+shadow_enabled = true
+shadow_gradient_length = 3.0

@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Fonts/Font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scripts/PlayerTent.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=18]
+radius = 5.59017
+
+[node name="PlayerTent" type="Sprite"]
+position = Vector2( -1024, -521 )
+scale = Vector2( 2, 2 )
+z_index = 2
+script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -3.5
+margin_top = -16.5
+margin_right = 64.5
+margin_bottom = -2.5
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "[E]"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0.5, 8.5 )
+shape = SubResource( 18 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
