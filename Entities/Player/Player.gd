@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 #Signals
 signal player_stats_changed
+signal player_running
+signal player_walking
 
 # Player movement speed
 export var speed = 75
@@ -19,9 +21,11 @@ var attack_playing = false
 var label_location
 var footsteps_cooldown = false
 var canmove
-
+var running = false
+var running_sound_cooldown = false
 
 onready var footsteps = $Footsteps
+onready var running_sound = $Running
 
 func _ready():
 	emit_signal("player_stats_changed", self)
@@ -38,6 +42,8 @@ func _physics_process(delta):
 		direction = direction.normalized()
 	# Apply movement
 	var movement = speed * direction * delta
+	if running == true:
+		movement = 1.8 * movement
 	if attack_playing || canmove == false:
 		movement = 0 * movement
 	move_and_collide(movement)
@@ -50,12 +56,22 @@ func animates_player(direction: Vector2):
 	if direction != Vector2.ZERO:
 		# Update last_direction
 		last_direction = direction
-		
-		# Choose walk animation based on movement direction
-		var animation = get_animation_direction(last_direction) + "_walk"
-		$Sprite.frames.set_animation_speed(animation, 2 + 8 * direction.length())
-		# Play the assigned walk animation
-		$Sprite.play(animation)
+		if Input.is_action_pressed("ui_shift"):
+			running = true
+			# Choose walk animation based on movement direction
+			var animation = get_animation_direction(last_direction) + "_walk"
+			emit_signal("player_running")
+			$Sprite.frames.set_animation_speed(animation, 8 + 16 * direction.length())
+			# Play the assigned walk animation
+			$Sprite.play(animation)
+		else:
+			running = false
+			emit_signal("player_walking")
+			# Choose walk animation based on movement direction
+			var animation = get_animation_direction(last_direction) + "_walk"
+			$Sprite.frames.set_animation_speed(animation, 2 + 8 * direction.length())
+			# Play the assigned walk animation
+			$Sprite.play(animation)
 	else:
 		# If the random number is less than or equal to 0.5, play the blink animation
 		if should_play_blink == true:
@@ -68,6 +84,10 @@ func animates_player(direction: Vector2):
 	if footsteps_cooldown == false && direction != Vector2.ZERO:
 		footsteps.play()
 		footsteps_cooldown = true
+	elif running_sound_cooldown == false && direction != Vector2.ZERO && running:
+		running_sound.play()
+		running_sound_cooldown = true
+		
 
 func get_animation_direction(direction: Vector2):
 	var norm_direction = direction.normalized()
@@ -131,3 +151,7 @@ func _on_PlayerTent_cantmovewhilesleeping():
 
 func _on_PlayerTent_canmovewellrested():
 	canmove = true
+
+
+func _on_RunningTimer_timeout():
+	running_sound_cooldown = false

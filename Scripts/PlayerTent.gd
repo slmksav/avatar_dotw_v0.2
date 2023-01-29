@@ -38,6 +38,7 @@ func _on_Area2D_body_entered(body):
 			$CanOnlySleepDuringNight.show()
 			yield(get_tree().create_timer(1), "timeout")
 			$CanOnlySleepDuringNight.hide()
+			wantstosleep = false
 		if sleepcooldown == true:
 			$SleepCooldown.show()
 			yield(get_tree().create_timer(1), "timeout")
@@ -46,8 +47,9 @@ func _on_Area2D_body_entered(body):
 func _on_Area2D_body_exited(body):
 	$Label.hide()
 
-func _input(interact):
-	wantstosleep = not wantstosleep
+func _input(event):
+		if event.is_action_pressed("interact"):
+			wantstosleep = true
 
 func _on_DayNightCycle_sendTorchRequest(torch_on):
 	cansleep = true

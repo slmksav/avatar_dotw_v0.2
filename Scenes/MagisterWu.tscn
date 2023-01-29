@@ -1,20 +1,11 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Sprites/DaiLi/Idle/DaiLiIdle1.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/DaiLi/Idle/DaiLiIdle2.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/EarthNationSoldier1.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://Scripts/MagisterWu.gd" type="Script" id=3]
 [ext_resource path="res://Sprites/Environment/ShadowForAll.png" type="Texture" id=4]
 [ext_resource path="res://sounds/huhgeneric.ogg" type="AudioStream" id=5]
 [ext_resource path="res://sounds/huhgeneric2.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Scenes/ChatBoxAnim.tres" type="SpriteFrames" id=7]
-
-[sub_resource type="SpriteFrames" id=9]
-animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "down_idle",
-"speed": 4.0
-} ]
 
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 10, 8.25 )
@@ -49,18 +40,18 @@ tracks/0/keys = {
 "values": [  ]
 }
 
-[node name="MagisterWu" type="KinematicBody2D"]
+[node name="EarthNationSoldier1" type="KinematicBody2D"]
 position = Vector2( 335, 207 )
 z_index = 2
 script = ExtResource( 3 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 9 )
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = ExtResource( 1 )
 animation = "down_idle"
 frame = 1
 playing = true
 
-[node name="Sprite" type="Sprite" parent="AnimatedSprite"]
+[node name="Shadow" type="Sprite" parent="Sprite"]
 position = Vector2( 0, -1 )
 z_index = 1
 z_as_relative = false

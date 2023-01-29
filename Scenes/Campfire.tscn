@@ -26,6 +26,8 @@ shape = SubResource( 23 )
 [node name="CampfireLight" type="Light2D" parent="."]
 position = Vector2( 7, 8 )
 texture = ExtResource( 2 )
-texture_scale = 0.5
+texture_scale = 0.89
 color = Color( 0.933333, 0.815686, 0.415686, 1 )
-energy = 0.87
+energy = 0.9
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 1 )
