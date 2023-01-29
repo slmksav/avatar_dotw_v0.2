@@ -7,7 +7,7 @@ Inspired by: https://github.com/Rystic/ATLA-restored
 Inspired by a mod for CK2: https://github.com/Rystic/ATLA-restored
 
 ## Changelog
-1/29/2023 - New Versio
+1/29/2023 - new version
 v. 0.2 includes:
 - A form of sprinting for the player
 - Follower-type NPC which will follow the player and catch up
